@@ -21,12 +21,13 @@ services:
 
 publish:
     docker:
-        username: $$DOCKER_ARTIFACTORY_USERNAME
-        password: $$DOCKER_ARTIFACTORY_PASSWORD
+        username: $$DOCKER_USERNAME
+        password: $$DOCKER_PASSWORD
         email: james_forbes@live.co.uk
         repo: privately registry
         tag: latest
         file: Dockerfile
+        registry: hub.docker.com
 
 image_to_artifactory:
   image: myJava:latest
