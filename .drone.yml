@@ -22,16 +22,6 @@ script:
   - docker tag myJava hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
   - docker push hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
 
-publish:
-    docker:
-        username: $$DOCKER_USERNAME
-        password: $$DOCKER_PASSWORD
-        email: james_forbes@live.co.uk
-        repo: privately registry
-        tag: latest
-        file: Dockerfile
-        registry: hub.docker.com
-
 image_to_artifactory:
   image: myJava:latest
   environment:
