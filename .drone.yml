@@ -4,7 +4,7 @@ pipeline:
     privileged: true
     image: myJava:latest
     environment:
-      - DOCKER_HOST=tcp://127.0.0.1:2375
+      - DOCKER_HOST=tcp://${ARTIFACTORY_DNS}:5000
     commands:
       - docker build -t myJava .
     when:
@@ -18,6 +18,15 @@ services:
     command:
       - "-s"
       - "overlay"
+
+publish:
+    docker:
+        username: ${DOCKER_ARTIFACTORY_USERNAME}
+        password: ${DOCKER_ARTIFACTORY_PASSWORD}
+        repo: privately registry
+        tag: latest
+        file: Dockerfile
+
 
 image_to_artifactory:
   image: myJava:latest
