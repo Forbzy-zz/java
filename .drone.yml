@@ -4,7 +4,7 @@ pipeline:
     privileged: true
     image: myJava:latest
     environment:
-      - DOCKER_HOST=tcp://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:80
+      - DOCKER_HOST=tcp://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5001
     commands:
       - docker build -t myJava .
     when:
@@ -28,7 +28,7 @@ publish:
         tag: latest
         file: Dockerfile
         environment:
-          - DOCKER_HOST=tcp://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:80
+          - DOCKER_HOST=tcp://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5001
 
 
 
