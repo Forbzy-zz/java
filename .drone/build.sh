@@ -1,4 +1,7 @@
 #!/bin/bash
+export DOCKER_ARTIFACTORY_USERNAME=admin
+export DOCKER_ARTIFACTORY_PASSWORD=password
+export ARTIFACTORY_DNS=ec2-52-213-177-144.eu-west-1.compute.amazonaws.com
 docker login -u="${DOCKER_ARTIFACTORY_USERNAME}" -p=${DOCKER_ARTIFACTORY_PASSWORD} ${ARTIFACTORY_DNS}:5001
 docker tag myJava ${ARTIFACTORY_DNS}:5001/myJava:${DRONE_COMMIT_SHA}
 docker push ${ARTIFACTORY_DNS}:5001/myJava:${DRONE_COMMIT_SHA}
