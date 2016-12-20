@@ -1,7 +1,7 @@
 publish:
   docker: 
     registry: ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5000
-    insecure: true
+    insecure: false
     tag:      latest
     file:     Dockerfile
     username: forbes
