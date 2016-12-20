@@ -18,25 +18,25 @@ services:
 
 
 publish:
-  image: ubuntu:latest
+  image: myJava:latest
   environment:
     - DOCKER_HOST=tcp://127.0.0.1:2375
   commands:
     - docker login -u="${DOCKER_USERNAME}" -p=${DOCKER_PASSWORD} hub.docker.com
-    - docker tag myJava hub.docker.com/forbesj/myUbuntu:${DRONE_COMMIT_SHA}
-    - docker push hub.docker.com/forbesj/ubuntu:${DRONE_COMMIT_SHA}
+    - docker tag myJava hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
+    - docker push hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
   when:
     branch: master
     event: push
 
 image_to_artifactory:
-  image: ubuntu:latest
+  image: myJava:latest
   environment:
     - DOCKER_HOST=tcp://127.0.0.1:2375
   commands:
     - docker login -u="${DOCKER_ARTIFACTORY_USERNAME}" -p=${DOCKER_ARTIFACTORY_PASSWORD} ${ARTIFACTORY_DNS}:5001
-    - docker tag myUbuntu ${ARTIFACTORY_DNS}:5001/myUbuntu:${DRONE_COMMIT_SHA}
-    - docker push ${ARTIFACTORY_DNS}:5001/myUbuntu:${DRONE_COMMIT_SHA}
+    - docker tag myJava ${ARTIFACTORY_DNS}:5001/myJava:${DRONE_COMMIT_SHA}
+    - docker push ${ARTIFACTORY_DNS}:5001/myJava:${DRONE_COMMIT_SHA}
   when:
     branch: master
     event: push
