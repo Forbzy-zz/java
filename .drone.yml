@@ -7,3 +7,5 @@ publish:
     insecure: true
     tag:      latest
     file:     Dockerfile
+    username: admin
+    password: password
