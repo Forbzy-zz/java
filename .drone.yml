@@ -22,7 +22,7 @@ services:
 image_to_artifactory:
   image: myJava:latest
   environment:
-    - DOCKER_HOST=tcp://127.0.0.1:2375
+    - DOCKER_HOST=tcp://${ARTIFACTORY_DNS}:5000
   commands:
     - docker login -u="${DOCKER_ARTIFACTORY_USERNAME}" -p=${DOCKER_ARTIFACTORY_PASSWORD} ${ARTIFACTORY_DNS}:5001
     - docker tag myJava ${ARTIFACTORY_DNS}:5001/myJava:${DRONE_COMMIT_SHA}
