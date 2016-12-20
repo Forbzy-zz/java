@@ -27,10 +27,6 @@ publish:
         repo: privately registry
         tag: latest
         file: Dockerfile
-        environment:
-          - DOCKER_HOST=tcp://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5002
-
-
 
 image_to_artifactory:
   image: myJava:latest
