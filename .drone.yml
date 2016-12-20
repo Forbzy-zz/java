@@ -2,11 +2,11 @@ pipeline:
 
   build:
     privileged: true
-    image: ubuntu:latest
+    image: myJava:latest
     environment:
       - DOCKER_HOST=tcp://127.0.0.1:2375
     commands:
-      - docker pull ubuntu 
+      - docker build -t myJava .
 
 services:
   dind:
@@ -23,7 +23,7 @@ publish:
     - DOCKER_HOST=tcp://127.0.0.1:2375
   commands:
     - docker login -u="${DOCKER_USERNAME}" -p=${DOCKER_PASSWORD} hub.docker.com
-    - docker tag myUbuntu hub.docker.com/forbesj/myUbuntu:${DRONE_COMMIT_SHA}
+    - docker tag myJava hub.docker.com/forbesj/myUbuntu:${DRONE_COMMIT_SHA}
     - docker push hub.docker.com/forbesj/ubuntu:${DRONE_COMMIT_SHA}
   when:
     branch: master
