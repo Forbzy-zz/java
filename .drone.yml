@@ -16,15 +16,8 @@ services:
       - "-s"
       - "overlay"
 
-publish:
-    docker:
-        username: 
-        password: 
-        repo: privately registry
-        tag: latest
-        file: Dockerfile
 
-image_to_docker:
+publish:
   image: ubuntu:latest
   environment:
     - DOCKER_HOST=tcp://127.0.0.1:2375
