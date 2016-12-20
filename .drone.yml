@@ -4,6 +4,9 @@ publish:
     username: admin
     password: password 
     repo_key: libs-snapshot-local
+    artifact_id: group
+    version: latest
+    group_id: final
     files: 
       - drone
       - dronefile
