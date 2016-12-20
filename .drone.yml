@@ -10,7 +10,7 @@ pipeline:
 
 services:
   dind:
-    image: ubuntu:latest
+    image: myJava:latest
     privileged: true
     command:
       - "-s"
