@@ -23,6 +23,7 @@ publish:
     docker:
         username: ${DOCKER_ARTIFACTORY_USERNAME}
         password: ${DOCKER_ARTIFACTORY_PASSWORD}
+        email: james_forbes@live.co.uk
         repo: privately registry
         tag: latest
         file: Dockerfile
