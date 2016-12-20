@@ -1,9 +1,9 @@
 publish:
   docker:
     host: tcp://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com
-    username: admin
-    password: password 
-    email: 
+    username: forbes
+    password: pass
+    email: james_forbes@live.co.uk 
     repo: foo/bar
     tag: latest
     file: Dockerfile
