@@ -1,0 +1,36 @@
+pipeline:
+
+  build:
+    privileged: true
+    image: myJava:latest
+    commands:
+      - docker build -t myJava .
+    when:
+      branch: master
+      event: push
+
+services:
+  dind:
+    image: myJava:latest
+    privileged: true
+    command:
+      - "-s"
+      - "overlay"
+
+script: 
+  - docker login -u="${DOCKER_USERNAME}" -p=${DOCKER_PASSWORD} hub.docker.com
+  - docker tag myJava hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
+  - docker push hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
+
+image_to_artifactory:
+  image: myJava:latest
+  environment:
+    - DOCKER_HOST=tcp://${ARTIFACTORY_DNS}:5000
+  commands:
+    - docker login -u="${DOCKER_ARTIFACTORY_USERNAME}" -p=${DOCKER_ARTIFACTORY_PASSWORD} ${ARTIFACTORY_DNS}:5001
+    - docker tag myJava ${ARTIFACTORY_DNS}:5001/myJava:${DRONE_COMMIT_SHA}
+    - docker push ${ARTIFACTORY_DNS}:5001/myJava:${DRONE_COMMIT_SHA}
+  when:
+    branch: master
+    event: push
+
