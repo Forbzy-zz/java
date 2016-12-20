@@ -1,3 +1,9 @@
-image: https://hub.docker.com/forbesj/ubuntu:latest
-script:
-  - ./.drone/build.sh
+build:
+  image: hub.docker.com/forbesj/ubuntu:latest
+
+publish:
+  docker: 
+    registry: ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5001
+    insecure: true
+    tag:      latest
+    file:     Dockerfile
