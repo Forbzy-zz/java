@@ -1,6 +1,6 @@
 publish:
   artifactory:
-    url: ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5000
+    url: http://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5000
     username: admin
     password: password 
     repo_key: libs-snapshot-local
