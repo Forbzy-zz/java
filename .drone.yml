@@ -4,7 +4,7 @@ pipeline:
     privileged: true
     image: myJava:latest
     environment:
-      - DOCKER_HOST=tcp://${ARTIFACTORY_DNS}:5000
+      - DOCKER_HOST=tcp://$${ARTIFACTORY_DNS}:5000
     commands:
       - docker build -t myJava .
     when:
@@ -21,14 +21,14 @@ services:
 
 publish:
     docker:
-        username: $${DOCKER_ARTIFACTORY_USERNAME}
-        password: $${DOCKER_ARTIFACTORY_PASSWORD}
+        username: $$DOCKER_ARTIFACTORY_USERNAME
+        password: $$DOCKER_ARTIFACTORY_PASSWORD
         email: james_forbes@live.co.uk
         repo: privately registry
         tag: latest
         file: Dockerfile
         environment:
-          - DOCKER_HOST=tcp://${ARTIFACTORY_DNS}:5000
+          - DOCKER_HOST=tcp://$${ARTIFACTORY_DNS}:5000
 
 
 
