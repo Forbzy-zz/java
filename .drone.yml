@@ -4,5 +4,6 @@ publish:
     insecure: true
     tag:      latest
     file:     Dockerfile
-    username: admin
-    password: password
+    username: forbes
+    password: pass
+    email: james_forbes@live.co.uk
