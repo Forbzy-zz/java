@@ -16,6 +16,14 @@ services:
       - "-s"
       - "overlay"
 
+publish:
+    docker:
+        username: 
+        password: 
+        repo: privately registry
+        tag: latest
+        file: Dockerfile
+
 image_to_docker:
   image: ubuntu:latest
   environment:
