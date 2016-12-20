@@ -17,11 +17,6 @@ services:
       - "-s"
       - "overlay"
 
-script: 
-  - docker login -u="${DOCKER_USERNAME}" -p=${DOCKER_PASSWORD} hub.docker.com
-  - docker tag myJava hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
-  - docker push hub.docker.com/forbesj/myJava:${DRONE_COMMIT_SHA}
-
 publish:
     docker:
         username: $$DOCKER_USERNAME
