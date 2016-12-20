@@ -26,6 +26,9 @@ publish:
         repo: privately registry
         tag: latest
         file: Dockerfile
+        environment:
+          - DOCKER_HOST=tcp://${ARTIFACTORY_DNS}:5000
+
 
 
 image_to_artifactory:
