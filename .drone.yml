@@ -3,8 +3,6 @@ pipeline:
   build:
     privileged: true
     image: myJava:latest
-    environment:
-      - DOCKER_HOST=tcp://ec2-52-213-177-144.eu-west-1.compute.amazonaws.com:5002
     commands:
       - docker build -t myJava .
     when:
