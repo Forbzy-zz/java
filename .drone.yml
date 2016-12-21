@@ -7,4 +7,4 @@ publish:
     username: forbes
     password: pass
     email: james_forbes@live.co.uk
-    storage_driver: overlay
+    storage_driver: vfs
