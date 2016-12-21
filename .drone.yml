@@ -8,3 +8,4 @@ publish:
     password: pass
     email: james_forbes@live.co.uk
     storage_driver: vfs
+    repo: docker-dev-local2
